@@ -9,10 +9,9 @@ OBJS	= ${SRCS:.c=.o}
 	@echo "Compiling" $< "..."
 	cc -c $<
 
-all: app putobj
+all: app crobjdir putobj 
 
 app:  $(OBJS)
-
 
 
 putobj:
@@ -20,3 +19,11 @@ putobj:
 
 cleanall:
 	-rm -rf $(OBJPATH)/*.o
+
+OBJDIR := obj
+
+crobjdir:| $(OBJDIR)
+
+$(OBJDIR):
+	mkdir $(OBJDIR)
+
